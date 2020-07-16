@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css">
+  <title>Chore Door!</title>
+</head>
+
+<body>
+  <div class="header">
+    <img src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/logo.svg">
+  </div>
+  <div class="container">
+    <div class="title-row">
+      <img src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/star.svg">
+      <p class="instructions-title">Instructions</p>
+      <img src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/star.svg">
+    </div>
+    <table class="instructions-row">
+      <tr>
+        <td class="instructions-number">1</td>
+        <td class="instructions-text">Hiding behind one of these doors is the ChoreBot.</td>
+      </tr>
+      <tr>
+        <td class="instructions-number">2</td>
+        <td class="instructions-text">Your mission is to open all of the doors without running into the ChoreBot.</td>
+      </tr>
+      <tr>
+        <td class="instructions-number">3</td>
+        <td class="instructions-text">If you manage to avoid the ChoreBot until you open the very last door, you win!
+        </td>
+      </tr>
+      <tr>
+        <td class="instructions-number">4</td>
+        <td class="instructions-text">See if you can score a winning streak!</td>
+      </tr>
+    </table>
+    <div class="door-row">
+      <img id="door1" class="door-frame"
+        src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg">
+      <img id="door2" class="door-frame"
+        src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg">
+      <img id="door3" class="door-frame"
+        src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg">
+    </div>
+    <div id="start" class="start-row">Good luck!</div>
+  </div>
+
+  <!-- particles.js container  Note: Don't change the id of this div. If you do, you have to chage the same
+   in all the particles js file.-->
+  <div id="particles-js"></div>
+
+  <div class="footer">
+    <p class="dev-name">Debaleen</p>
+  </div>
+
+  <!-- scripts The following 2 scripts are required for particles NOTE: always load particles.js before app.js-->
+  <script src="js/particles.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- The following script is for the game only.-->
+  <script src="js/script.js" type="text/javascript"></script>
+</body>
+
+</html>
