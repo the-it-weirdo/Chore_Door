@@ -2,17 +2,19 @@ const doorImage1 = document.getElementById('door1');
 const doorImage2 = document.getElementById('door2');
 const doorImage3 = document.getElementById('door3');
 const startButton = document.getElementById('start');
-const botDoorPath = 'https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/robot.svg';
-const beachDoorPath = 'https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/beach.svg';
-const spaceDoorPath = 'https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/space.svg';
-const closedDoorPath = 'https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg';
+const botDoorPath = 'res/robot.svg';
+const beachDoorPath = 'res/beach.svg';
+const spaceDoorPath = 'res/space.svg';
+const closedDoorPath = 'res/closed_door.svg';
 
 let currentlyPlaying = true;
 let numClosedDoors = 3;
 let openDoor1, openDoor2, openDoor3;
 
 const isBot = door => {
-    if (door.src === botDoorPath) {
+    srcPath = door.src.split('/');
+    checkPath = botDoorPath.split('/');
+    if (srcPath[srcPath.length-1] === checkPath[checkPath.length-1]) {
         return true;
     } else {
         return false;
@@ -20,7 +22,9 @@ const isBot = door => {
 };
 
 const isClicked = door => {
-    if (door.src === closedDoorPath) {
+    srcPath = door.src.split('/');
+    checkPath = closedDoorPath.split('/');
+    if (srcPath[srcPath.length-1] === checkPath[checkPath.length-1]) {
         return false;
     } else {
         return true;
