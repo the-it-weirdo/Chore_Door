@@ -9,3 +9,11 @@ A simple JavaScript Game.
 4. See if you can score a winning streak!
 
 <img src="git_res/image.png">
+
+## Credits
+Thanks to 
+  - [Codecademy](https://www.codecademy.com/) for awesome tutorials.
+  - [Shouvit Pradhan](https://github.com/shaw8wit) for introducing Codecademy to me.
+ 
+## Attributions
+ - [ParticleJS library](https://vincentgarreau.com/particles.js/)
