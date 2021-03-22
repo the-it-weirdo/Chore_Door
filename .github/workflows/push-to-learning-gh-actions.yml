@@ -30,7 +30,7 @@ jobs:
     - name: Pull files from other self
       run: |
         git remote add rem https://github.com/the-it-weirdo/learning-gh-actions
-        git pull --no-commit --rebase rem@main
+        git pull --no-commit --rebase rem main
 
     - name: GitHub Push to  other repo owner self
       uses: ad-m/github-push-action@v0.6.0
