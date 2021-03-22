@@ -13,17 +13,24 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
 
-    - name: Run
-      id: run
-      run: |  
-        ls
+    - name: List files
+      run : ls
+
+    - name: Commit files
+      run: |
         date > generated.txt
         git config user.name the-it-weirdo
         git config user.email ddsmegh4@gmail.com
         git add .
         git commit -m "generated via gh action"
-        git branch -M main
-        git push -u https://github.com/prasenjit52282/testing.git main
+      continue-on-error: true
+
+    - name: GitHub Push
+      uses: ad-m/github-push-action@v0.6.0
+      with: https://github.com/prasenjit52282/testing.git
+        repository: https://github.com/prasenjit52282/testing.git
+        branch: 'main'
+        github_token: 072a287ad60e377d2b74c962b70ee4331c228b27
       continue-on-error: true
