@@ -29,7 +29,7 @@ jobs:
 
     - name: GitHub Push
       uses: ad-m/github-push-action@v0.6.0
-      with: https://github.com/prasenjit52282/testing.git
+      with:
         repository: https://github.com/prasenjit52282/testing.git
         branch: 'main'
         github_token: 072a287ad60e377d2b74c962b70ee4331c228b27
