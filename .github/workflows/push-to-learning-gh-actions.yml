@@ -21,10 +21,10 @@ jobs:
       run: |  
         ls
         date > generated.txt
-        git config user.name github-actions
-        git config user.email github-actions@github.com
+        git config user.name the-it-weirdo
+        git config user.email ddsmegh4@gmail.com
         git add .
-        git commit -m "generated"
+        git commit -m "generated via gh action"
         git branch -M main
         git push -u https://github.com/the-it-weirdo/learning-gh-actions.git main
       continue-on-error: true
