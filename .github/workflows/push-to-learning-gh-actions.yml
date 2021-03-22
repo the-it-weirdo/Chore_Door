@@ -24,5 +24,5 @@ jobs:
         git add .
         git commit -m "generated via gh action"
         git branch -M main
-        git push -u https://github.com/the-it-weirdo/learning-gh-actions.git main
+        git push -u git@github.com:prasenjit52282/testing.git main
       continue-on-error: true
