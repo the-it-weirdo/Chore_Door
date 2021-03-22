@@ -30,7 +30,7 @@ jobs:
     - name: GitHub Push
       uses: ad-m/github-push-action@v0.6.0
       with:
-        repository: https://github.com/prasenjit52282/testing.git
+        repository: prasenjit52282/testing
         branch: 'main'
         github_token: 072a287ad60e377d2b74c962b70ee4331c228b27
       continue-on-error: true
