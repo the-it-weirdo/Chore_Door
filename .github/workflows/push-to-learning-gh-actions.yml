@@ -27,10 +27,23 @@ jobs:
         git commit -m "generated via gh action"
       continue-on-error: true
 
-    - name: GitHub Push
+    - name: Pull files from other self
+      run: |
+        git remote add rem https://github.com/the-it-weirdo/learning-gh-actions
+        git pull --no-commit rem
+
+    - name: GitHub Push to  other repo owner self
       uses: ad-m/github-push-action@v0.6.0
       with:
-        repository: prasenjit52282/testing
+        repository: the-it-weirdo/learning-gh-actions
         branch: 'main'
-        github_token: 072a287ad60e377d2b74c962b70ee4331c228b27
+        github_token: ${{ secrets.gh-action-push-to-other }}
       continue-on-error: true
+
+    # - name: GitHub Push to  other owner
+    #   uses: ad-m/github-push-action@v0.6.0
+    #   with:
+    #     repository: prasenjit52282/testing
+    #     branch: 'main'
+    #     github_token: ${{ secrets.gh-action-push-to-other }}
+    #   continue-on-error: true
