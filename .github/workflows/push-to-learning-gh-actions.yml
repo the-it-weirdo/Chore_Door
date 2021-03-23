@@ -21,8 +21,8 @@ jobs:
     - name: Commit files
       run: |
         date > generated.txt
-        git config user.name the-it-weirdo
-        git config user.email ddsmegh4@gmail.com
+        git config --global user.name the-it-weirdo
+        git config --global user.email ddsmegh4@gmail.com
         git add .
         git commit -m "generated via gh action"
         git branch -M main
@@ -30,7 +30,7 @@ jobs:
 
     - name: Push files
       run: |
-        git remote add other git@github.com:the-it-weirdo/learning-gh-actions.git
+        git remote add other https://github.com/the-it-weirdo/learning-gh-actions.git
         git push other main --force
 
     # - name: Commit & Push changes
