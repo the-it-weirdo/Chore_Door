@@ -12,14 +12,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-	path: Frontend
+        path: Frontend
         fetch-depth: 0
         persist-redentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
 
     - name: Checkout backend
       uses: actions/checkout@v2
       with:
-	fetch-depth: 0
+        fetch-depth: 0
         repository: prasenjit52282/testing
         path: Backend
 
