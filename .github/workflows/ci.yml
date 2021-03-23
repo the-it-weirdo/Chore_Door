@@ -34,20 +34,23 @@ jobs:
         cd backend
         ls
 
-    # - name: Commit files
-    #   run: |
-    #     date > generated.txt
-    #     git config --local user.name the-it-weirdo
-    #     git config --local user.email ddsmegh4@gmail.com
-    #     git add .
-    #     git commit -m "generated via gh action"
-    #     git branch -M main
-    #   continue-on-error: true
+    # - name: git init
+    #   run: git init
 
-    # - name: GitHub Push
-    #   uses: ad-m/github-push-action@v0.6.0
-    #   with:
-    #     github_token: ${{ secrets.PAT }}
-    #     branch: 'main'
-    #     force: true
-    #     repository: 'prasenjit52282/testing'
+    - name: Commit files
+      run: |
+        date > generated.txt
+        git config --local user.name the-it-weirdo
+        git config --local user.email ddsmegh4@gmail.com
+        git add .
+        git commit -m "generated via gh action"
+        git branch -M main
+      continue-on-error: true
+
+    - name: GitHub Push
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.PAT }}
+        branch: 'main'
+        force: true
+        repository: 'prasenjit52282/testing'
