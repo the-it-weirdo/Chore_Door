@@ -18,28 +18,34 @@ jobs:
     - name: List files
       run : ls
 
-    - name: Install SSH key
-      uses: shimataro/ssh-key-action@v2
-      with:
-         key: ${{ secrets.SSH_PRIVATE_KEY }}
-         known_hosts: ${{ secrets.KNOWN_HOSTS }}
-    # - run: ssh -T git@github.com
+    # - name: Install SSH key
+    #   uses: shimataro/ssh-key-action@v2
+    #   with:
+    #      key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #      known_hosts: ${{ secrets.KNOWN_HOSTS }}
+    # # - run: ssh -T git@github.com
 
-    - name: Commit files
-      run: |
-        date > generated.txt
-        git config --global user.name the-it-weirdo
-        git config --global user.email ddsmegh4@gmail.com
-        git add .
-        git commit -m "generated via gh action"
-        git branch -M main
-      continue-on-error: true
+    # - name: Commit files
+    #   run: |
+    #     date > generated.txt
+    #     git config --global user.name the-it-weirdo
+    #     git config --global user.email ddsmegh4@gmail.com
+    #     git add .
+    #     git commit -m "generated via gh action"
+    #     git branch -M main
+    #   continue-on-error: true
 
 
-    - name: Push files
-      run: |
-        git remote add other https://the-it-weirdo:9de3b9cf3a029b1bc891c8ad767b083288ea84a8@github.com/the-it-weirdo/learning-gh-actions.git
-        git push other main --force
+    - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@master
+        env:
+          API_TOKEN_GITHUB: "9de3b9cf3a029b1bc891c8ad767b083288ea84a8"
+        with:
+          source-directory: '.'
+          destination-github-username: 'the-it-weirdo'
+          destination-repository-name: 'learning-gh-actions'
+          user-email: ddsmegh4@gmail.com
+          commit-message: "generated via gh action"
 
     # - name: Commit & Push changes
     #   uses: actions-js/push@master
