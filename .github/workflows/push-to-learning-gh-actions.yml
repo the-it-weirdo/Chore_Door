@@ -18,26 +18,32 @@ jobs:
     - name: List files
       run : ls
 
-    # - name: Commit files
-    #   run: |
-    #     date > generated.txt
-    #     git config user.name the-it-weirdo
-    #     git config user.email ddsmegh4@gmail.com
-    #     git add .
-    #     git commit -m "generated via gh action"
-    #   continue-on-error: true
+    - name: Commit files
+      run: |
+        date > generated.txt
+        git config user.name the-it-weirdo
+        git config user.email ddsmegh4@gmail.com
+        git add .
+        git commit -m "generated via gh action"
+        git branch -M main
+      continue-on-error: true
 
-    - name: Commit & Push changes
-      uses: actions-js/push@master
-      with:
-        author_email: ddsmegh4@gmail.com
-        author_name: the-it-weirdo
-        github_token: "9de3b9cf3a029b1bc891c8ad767b083288ea84a8"
-        force: true
-        empty: true
-        branch: "main"
-        message: "push by gh action"
-        repository: "the-it-weirdo/learning-gh-actions"
+    - name: Push files
+      run: |
+        git remote add other https://github.com/the-it-weirdo/learning-gh-actions.git
+        git push other main --force
+
+    # - name: Commit & Push changes
+    #   uses: actions-js/push@master
+    #   with:
+    #     author_email: ddsmegh4@gmail.com
+    #     author_name: the-it-weirdo
+    #     github_token: "9de3b9cf3a029b1bc891c8ad767b083288ea84a8"
+    #     force: true
+    #     empty: true
+    #     branch: "main"
+    #     message: "push by gh action"
+    #     repository: "the-it-weirdo/learning-gh-actions"
 
     # - name: Pull files from other self
     #   run: |
