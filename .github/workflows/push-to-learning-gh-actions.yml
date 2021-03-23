@@ -18,6 +18,13 @@ jobs:
     - name: List files
       run : ls
 
+    - name: Install SSH key
+      uses: shimataro/ssh-key-action@v2
+      with:
+         key: ${{ secrets.SSH_PRIVATE_KEY }}
+         known_hosts: ${{ secrets.KNOWN_HOSTS }}
+      run: ssh -T git@github.com
+
     - name: Commit files
       run: |
         date > generated.txt
@@ -28,8 +35,6 @@ jobs:
         git branch -M main
       continue-on-error: true
 
-    - name: Check SSH
-      run: ssh -T git@github.com
 
     - name: Push files
       run: |
