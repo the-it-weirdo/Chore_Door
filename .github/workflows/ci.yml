@@ -32,10 +32,20 @@ jobs:
         cd frontend
         ls
 
+    - name: clear-frontend-git-folder
+      run: |
+        cd frontend
+        rm .git
+
     - name: list-back
       run: |
         cd backend
         ls
+
+    - name: clear-backend-git-folder
+      run: |
+        cd backend
+        rm .git
 
     - name: Initialise git repo
       run: git init
