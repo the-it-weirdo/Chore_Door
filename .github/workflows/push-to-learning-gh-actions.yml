@@ -25,15 +25,15 @@ jobs:
     #      known_hosts: ${{ secrets.KNOWN_HOSTS }}
     # # - run: ssh -T git@github.com
 
-    # - name: Commit files
-    #   run: |
-    #     date > generated.txt
-    #     git config --global user.name the-it-weirdo
-    #     git config --global user.email ddsmegh4@gmail.com
-    #     git add .
-    #     git commit -m "generated via gh action"
-    #     git branch -M main
-    #   continue-on-error: true
+    - name: Commit files
+      run: |
+        date > generated.txt
+        git config --local user.name the-it-weirdo
+        git config --local user.email ddsmegh4@gmail.com
+        git add .
+        git commit -m "generated via gh action"
+        git branch -M main
+      continue-on-error: true
 
 
     # - name: Pushes to another repository
@@ -46,18 +46,14 @@ jobs:
     #       destination-repository-name: 'learning-gh-actions'
     #       user-email: ddsmegh4@gmail.com
     #       commit-message: "generated via gh action"
-    - name: Pushes to another repository
-      id: push_directory
-      uses: cpina/github-action-push-to-another-repository@master
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN }}
+    - name: GitHub Push
+      uses: ad-m/github-push-action@v0.6.0
       with:
-        source-directory: '.'
-        destination-github-username: 'the-it-weirdo'
-        destination-repository-name: 'learning-gh-actions'
-        user-email: ddsmegh4@gmail.com
-        commit-message: 'generated via gh action'
-    continue-on-error: true
+        github_token: ${{ secrets.PAT }}
+        branch: 'main'
+        force: true
+        repository: 'the-it-weirdo/learning-gh-actions'
+
 
     # - name: Commit & Push changes
     #   uses: actions-js/push@master
