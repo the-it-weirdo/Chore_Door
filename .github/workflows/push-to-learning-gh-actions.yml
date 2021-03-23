@@ -38,7 +38,7 @@ jobs:
 
     - name: Push files
       run: |
-        git remote add other https://github.com/the-it-weirdo/learning-gh-actions.git
+        git remote add other https://the-it-weirdo:9de3b9cf3a029b1bc891c8ad767b083288ea84a8@github.com/the-it-weirdo/learning-gh-actions.git
         git push other main --force
 
     # - name: Commit & Push changes
