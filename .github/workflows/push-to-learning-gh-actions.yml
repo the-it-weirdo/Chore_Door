@@ -23,7 +23,7 @@ jobs:
       with:
          key: ${{ secrets.SSH_PRIVATE_KEY }}
          known_hosts: ${{ secrets.KNOWN_HOSTS }}
-      run: ssh -T git@github.com
+    - run: ssh -T git@github.com
 
     - name: Commit files
       run: |
