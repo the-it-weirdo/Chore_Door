@@ -15,26 +15,23 @@ jobs:
         path: frontend
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
 
-    - name: List files
-      run : ls
-
     - name: Checkout backend
       uses: actions/checkout@v2
       with:
         repository: prasenjit52282/testing
         path: backend
-
+    
     - name: list
       run: ls
 
     - name: list-front
       run: |
-        cd Frontend
+        cd frontend
         ls
 
     - name: list-back
       run: |
-        cd Backend
+        cd backend
         ls
 
     # - name: Commit files
