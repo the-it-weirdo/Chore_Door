@@ -28,10 +28,10 @@ jobs:
 
     - name: list-front
       run: |
-	cd Frontend
-	ls
+        cd Frontend
+        ls
 
     - name: list-back
       run: |
-	cd Backend
-	ls
+      cd Backend
+      ls
