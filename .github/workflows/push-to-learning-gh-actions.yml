@@ -18,28 +18,40 @@ jobs:
     - name: List files
       run : ls
 
-    - name: Commit files
-      run: |
-        date > generated.txt
-        git config user.name the-it-weirdo
-        git config user.email ddsmegh4@gmail.com
-        git add .
-        git commit -m "generated via gh action"
-      continue-on-error: true
+    # - name: Commit files
+    #   run: |
+    #     date > generated.txt
+    #     git config user.name the-it-weirdo
+    #     git config user.email ddsmegh4@gmail.com
+    #     git add .
+    #     git commit -m "generated via gh action"
+    #   continue-on-error: true
+
+    - name: Commit & Push changes
+      uses: actions-js/push@master
+      with:
+        author_email: ddsmegh4@gmail.com
+        author_name: the-it-weirdo
+        github_token: "9de3b9cf3a029b1bc891c8ad767b083288ea84a8"
+        force: true
+        empty: true
+        branch: "main"
+        message: "push by gh action"
+        repository: "the-it-weirdo/learning-gh-actions"
 
     # - name: Pull files from other self
     #   run: |
     #     git remote add rem https://github.com/the-it-weirdo/learning-gh-actions
     #     git pull --no-commit --rebase rem main
 
-    - name: GitHub Push to  other repo owner self
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-        repository: the-it-weirdo/learning-gh-actions
-        branch: 'main'
-        force: true
-        github_token: ${{ secrets.PUSH_SECRET }}
-      continue-on-error: true
+    # - name: GitHub Push to  other repo owner self
+    #   uses: ad-m/github-push-action@v0.6.0
+    #   with:
+    #     repository: the-it-weirdo/learning-gh-actions
+    #     branch: 'main'
+    #     force: true
+    #     github_token: ${{ secrets.PUSH_SECRET }}
+    #   continue-on-error: true
 
     # - name: GitHub Push to  other owner
     #   uses: ad-m/github-push-action@v0.6.0
