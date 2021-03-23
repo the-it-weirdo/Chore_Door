@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+
+    - name: Checkout this repo
+      uses: actions/checkout@v2
       with:
         path: frontend
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
@@ -20,6 +22,7 @@ jobs:
       with:
         repository: prasenjit52282/testing
         path: backend
+        persist-credentials: false
     
     - name: list
       run: ls
@@ -34,8 +37,8 @@ jobs:
         cd backend
         ls
 
-    # - name: git init
-    #   run: git init
+    - name: Initialise git repo
+      run: git init
 
     - name: Commit files
       run: |
