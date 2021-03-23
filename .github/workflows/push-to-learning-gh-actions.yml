@@ -47,16 +47,17 @@ jobs:
     #       user-email: ddsmegh4@gmail.com
     #       commit-message: "generated via gh action"
     - name: Pushes to another repository
-        id: push_directory
-        uses: cpina/github-action-push-to-another-repository@master
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN }}
-        with:
-          source-directory: '.'
-          destination-github-username: 'the-it-weirdo'
-          destination-repository-name: 'learning-gh-actions'
-          user-email: ddsmegh4@gmail.com
-          commit-message: 'generated via gh action'
+      id: push_directory
+      uses: cpina/github-action-push-to-another-repository@master
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN }}
+      with:
+        source-directory: '.'
+        destination-github-username: 'the-it-weirdo'
+        destination-repository-name: 'learning-gh-actions'
+        user-email: ddsmegh4@gmail.com
+        commit-message: 'generated via gh action'
+    continue-on-error: true
 
     # - name: Commit & Push changes
     #   uses: actions-js/push@master
